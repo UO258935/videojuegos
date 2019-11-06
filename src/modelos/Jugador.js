@@ -36,7 +36,9 @@ class Jugador extends Modelo {
 
         this.animacion = this.aIdleDerecha;
     }
-
+    getX(){
+        return this.x;
+    }
     actualizar(){
         this.animacion.actualizar();
 

@@ -39,15 +39,16 @@
       <find>32</find>
     </findStrings>
   </component>
-  <component name="ProjectId" id="1SFHEwWICKwLL3giqhuIIYZw5Um" />
+  <component name="ProjectId" id="1TCExocLSF0krqJQNXCbs0dm4hx" />
   <component name="PropertiesComponent">
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/res" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Marcos\Desktop\INFORMATICA\TERCERO\Software Entretenimiento y Videojuegos\Ampliacion plataformas\plataformas\res" />
       <recent name="C:\En proceso\Uniovi\SOF - Asignaturas\Videojuegos\2020 USAR ESTO PARA LAS PRACTICAS\2 -\partirDeEste\s2\res" />
       <recent name="C:\Users\jordansoy\WebstormProjects\s2\res" />
     </key>
@@ -84,7 +85,10 @@
       <workItem from="1570035635511" duration="13000" />
       <workItem from="1570109996477" duration="7824000" />
       <workItem from="1570131573266" duration="511000" />
-      <workItem from="1571152317788" duration="614000" />
+      <workItem from="1572955927510" duration="356000" />
+      <workItem from="1572981958365" duration="13178000" />
+      <workItem from="1573030872264" duration="891000" />
+      <workItem from="1573032943435" duration="4154000" />
     </task>
     <servers />
   </component>

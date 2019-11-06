@@ -9,6 +9,7 @@ var imagenes = {
     icono_puntos : "res/icono_puntos.png",
     icono_vidas : "res/icono_vidas.png",
     icono_recolectable : "res/icono_recolectable.png",
+    recolectable: "res/recolectable.png",
     fondo_2 : "res/fondo_2.png",
     jugador_idle_derecha : "res/jugador_idle_derecha.png",
     jugador_idle_izquierda : "res/jugador_idle_izquierda.png",
@@ -32,6 +33,10 @@ var imagenes = {
     mensaje_como_jugar : "res/mensaje_como_jugar.png",
     mensaje_ganar : "res/mensaje_ganar.png",
     mensaje_perder : "res/mensaje_perder.png",
+    bloque_musgo: "res/musgo.png",
+    enemigo_estatico : "res/abeja_animada - copia.png",
+    fondoBola: "res/fondoBola.png",
+    fondoBola2: "res/fondoBola2.png",
 
 };
 

@@ -44,4 +44,16 @@ class Modelo {
         return colisiona;
     }
 
+    colisionaArriba(modelo){
+        var colisiona = false;
+
+        if ( modelo.x - modelo.ancho/2 <=  this.x + this.ancho/2
+            && modelo.x + modelo.ancho/2 >= this.x - this.ancho/2){
+
+            colisiona = true;
+
+        }
+        return colisiona;
+    }
+
 }
