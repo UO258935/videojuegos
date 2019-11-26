@@ -7,7 +7,7 @@ class GameLayer extends Layer {
     }
 
     iniciar() {
-        this.espacio = new Espacio(0);
+        this.espacio = new Espacio(1 );
 
         this.fondo = new Fondo(imagenes.fondo1, 320 * 0.5, 480 * 0.5);
 
@@ -19,7 +19,7 @@ class GameLayer extends Layer {
         this.cargarMapa("res/0.txt");
 
         //scroll
-        this.scrollY = 0;
+        //this.scrollY = 0;
 
     }
 
@@ -78,11 +78,7 @@ class GameLayer extends Layer {
             this.disparosJugador[i].actualizar();
         }
 
-        for(var i = 0; i < this.bloques[i].length; i++){
-            if(this.jugador != null && this.bloques[i] != null && this.jugador.colisiona(this.bloques[i])){
-                this.jugador.saltar();
-            }
-        }
+
 
     }
 

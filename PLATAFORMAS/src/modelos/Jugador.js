@@ -26,8 +26,8 @@ class Jugador extends Modelo {
 
         this.aDispararDerecha = new Animacion(imagenes.jugador_disparando_derecha,
             this.ancho, this.alto,6,4,this.finAnimacionDisparar.bind(this) );
-// No pasar funciones del DIRECTAMNTE COMO callback
-// El objeto que ejecute la función no sabrá interpretar el "this."
+        // No pasar funciones del DIRECTAMNTE COMO callback
+        // El objeto que ejecute la función no sabrá interpretar el "this."
 
         this.aDispararIzquierda = new Animacion(imagenes.jugador_disparando_izquierda,
             this.ancho,this.alto,6,4,this.finAnimacionDisparar.bind(this));

@@ -38,14 +38,13 @@ class Fondo extends Modelo {
                 this.fondoAux.y = this.y - this.alto;
             }
             // hueco por la derecha
-            if (this.y + this.alto/2 < 480){
+            if (this.y + this.alto/2 < 320){
                 // pintar auxiliar por la derecha
                 this.fondoAux.y =this.y + this.alto;
             }
             this.fondoAux.dibujar();
         }
     }
-
 
 
 }

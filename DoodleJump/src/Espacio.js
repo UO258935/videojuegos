@@ -17,9 +17,10 @@ class Espacio {
             }
 
             // reiniciar choques
-            this.dinamicos[i].choqueAbajo = false;
+             this.dinamicos[i].choqueAbajo = false;
 
             this.moverAbajo(i);
+            //this.moverArriba(i);
         }
 
     }
@@ -58,13 +59,60 @@ class Espacio {
                     if (movimientoPosible >= arribaEstatico - abajoDinamico ){
                         // La distancia es MENOR que nuestro movimiento posible
                         // Tenemos que actualizar el movimiento posible a uno menor
-                        movimientoPosible = arribaEstatico - abajoDinamico  ;
                         this.dinamicos[i].choqueAbajo = true;
+                        movimientoPosible = arribaEstatico - abajoDinamico  ;
+
                     }
                 }
             }
 
             // Ya se han comprobado todos los estáticos
+            this.dinamicos[i].y = this.dinamicos[i].y + movimientoPosible;
+            this.dinamicos[i].vy = movimientoPosible;
+        }
+    }
+
+    moverArriba(i){
+        if ( this.dinamicos[i].vy < 0){
+            var movimientoPosible = this.dinamicos[i].vy;
+            // El mejor "idealmente" es la velocidad vy.
+
+            for(var j=0; j < this.estaticos.length; j++){
+                var arribaDinamico
+                    = this.dinamicos[i].y - this.dinamicos[i].alto/2;
+                var abajoDinamico
+                    = this.dinamicos[i].y + this.dinamicos[i].alto/2;
+                var derechaDinamico
+                    = this.dinamicos[i].x + this.dinamicos[i].ancho/2;
+                var izquierdaDinamico
+                    = this.dinamicos[i].x - this.dinamicos[i].ancho/2;
+                var arribaEstatico
+                    = this.estaticos[j].y - this.estaticos[j].alto/2;
+                var abajoEstatico
+                    = this.estaticos[j].y + this.estaticos[j].alto/2;
+                var derechaEstatico
+                    = this.estaticos[j].x + this.estaticos[j].ancho/2;
+                var izquierdaEstatico
+                    = this.estaticos[j].x - this.estaticos[j].ancho/2;
+
+                // Alerta!, Elemento estático en la trayectoria
+                if ( (arribaDinamico +  this.dinamicos[i].vy) <= abajoEstatico &&
+                    abajoDinamico > arribaEstatico
+                    && izquierdaDinamico < derechaEstatico
+                    && derechaDinamico > izquierdaEstatico ){
+
+                    // Comprobamos si la distancia al estático es MAYOR
+                    // que nuestro movimientoPosible actual
+                    if (movimientoPosible <= abajoEstatico - arribaDinamico ){
+                        // La distancia es MAYOR que nuestro movimiento posible
+                        // Tenemos que actualizar el movimiento posible a uno mayor
+
+                        movimientoPosible = abajoEstatico - arribaDinamico ;
+                    }
+
+                }
+            }
+
             this.dinamicos[i].y = this.dinamicos[i].y + movimientoPosible;
             this.dinamicos[i].vy = movimientoPosible;
         }

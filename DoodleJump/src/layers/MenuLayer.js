@@ -4,10 +4,6 @@ class MenuLayer extends Layer {
         //this.iniciar();
     }
 
-    iniciar() {
-
-    }
-
     dibujar (){
 
     }

@@ -21,9 +21,9 @@ class Espacio {
 
 
             //derecha
-            //this.moverDerecha(i);
-            //this.moverIzquierda(i);
-            //this.moverArriba(i);
+            this.moverDerecha(i);
+            this.moverIzquierda(i);
+            this.moverArriba(i);
             this.moverAbajo(i);
 
         }
