@@ -7,9 +7,9 @@ class GameLayer extends Layer {
     }
 
     iniciar() {
-        this.espacio = new Espacio(1);
+        this.espacio = new Espacio(0);
 
-        this.fondo = new Fondo(imagenes.fondo, 320 * 0.5, 480 * 0.5);
+        this.fondo = new Fondo(imagenes.fondo1, 320 * 0.5, 480 * 0.5);
 
         //arrays
         this.disparosJugador = [];
@@ -24,7 +24,7 @@ class GameLayer extends Layer {
     }
 
     calcularScroll(){
-        this.scrollY = this.jugador.y - 200;
+        this.scrollY = this.jugador.y - 400;
     }
 
 
@@ -50,20 +50,10 @@ class GameLayer extends Layer {
     }
 
 
-    estaEnPantalla (){
-        if ( this.x - this.ancho/2 <= 320 &&
-            this.x + this.ancho/2 >= 0 &&
-            this.y - this.alto/2 <= 480 &&
-            this.y + this.alto/2 >= 0 ){
-            return true;
-        }
-        return false;
-    }
-
     actualizar() {
         this.espacio.actualizar();
 
-        this.fondo.vx = -1;
+        this.fondo.vy= 1;
         this.fondo.actualizar();
 
         this.jugador.actualizar();
@@ -73,14 +63,6 @@ class GameLayer extends Layer {
             this.iniciar();
         }
 
-        // Eliminar disparos fuera de pantalla
-        //for (var i=0; i < this.disparosJugador.length; i++){
-            //if ( this.disparosJugador[i] != null &&
-                //!this.disparosJugador[i].estaEnPantalla()){
-                //this.disparosJugador.splice(i, 1);
-                //i=i-1;
-            //}
-        //}
 
         // Eliminar disparos sin velocidad
         for (var i=0; i < this.disparosJugador.length; i++){
@@ -94,6 +76,12 @@ class GameLayer extends Layer {
 
         for (var i=0; i < this.disparosJugador.length; i++) {
             this.disparosJugador[i].actualizar();
+        }
+
+        for(var i = 0; i < this.bloques[i].length; i++){
+            if(this.jugador != null && this.bloques[i] != null && this.jugador.colisiona(this.bloques[i])){
+                this.jugador.saltar();
+            }
         }
 
     }
@@ -145,7 +133,6 @@ class GameLayer extends Layer {
             this.jugador.saltar();
 
         } else if ( controles.moverY < 0 ){
-
 
         } else {
 

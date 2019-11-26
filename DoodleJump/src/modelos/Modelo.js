@@ -30,17 +30,7 @@ class Modelo {
         return colisiona;
     }
 
-    colisionSuperior(modelo){
-        var colisiona = false;
 
-        if (this.y + this.alto/2 >= modelo.y - modelo.alto/2
-            && this.y - this.alto/2 <= modelo.y + modelo.alto/2 ){
-
-            colisiona = true;
-
-        }
-        return colisiona;
-    }
 
 
 
