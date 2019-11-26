@@ -19,7 +19,6 @@ class Jugador extends Modelo {
         this.animacion = this.aIdleDerecha;
         this.orientacion = orientaciones.derecha;
 
-        //prueba
 
     }
 
