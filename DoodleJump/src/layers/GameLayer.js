@@ -19,7 +19,7 @@ class GameLayer extends Layer {
         this.cargarMapa("res/0.txt");
 
         //scroll
-        //this.scrollY = 0;
+        this.scrollY = 0;
 
     }
 
@@ -53,29 +53,36 @@ class GameLayer extends Layer {
     actualizar() {
         this.espacio.actualizar();
 
-        this.fondo.vy= 1;
+        this.fondo.vy = 1;
         this.fondo.actualizar();
 
         this.jugador.actualizar();
 
         // Jugador se cae
-        if ( this.jugador.x > 350 || this.jugador.x < -10 ){
+        if (this.jugador.x > 350 || this.jugador.x < -10) {
             this.iniciar();
         }
 
 
         // Eliminar disparos sin velocidad
-        for (var i=0; i < this.disparosJugador.length; i++){
-            if ( this.disparosJugador[i] != null &&
-                this.disparosJugador[i].vx == 0){
+        for (var i = 0; i < this.disparosJugador.length; i++) {
+            if (this.disparosJugador[i] != null &&
+                this.disparosJugador[i].vx == 0) {
                 this.espacio
                     .eliminarCuerpoDinamico(this.disparosJugador[i]);
                 this.disparosJugador.splice(i, 1);
             }
         }
 
-        for (var i=0; i < this.disparosJugador.length; i++) {
+        for (var i = 0; i < this.disparosJugador.length; i++) {
             this.disparosJugador[i].actualizar();
+        }
+
+        for(var i = 0; i < this.bloques.length; i++){
+          if(this.bloques[i] != null && this.jugador != null && this.jugador.colisiona(this.bloques[i])){
+             //this.jugador.saltar();
+              console.log("salto")
+          }
         }
 
 

@@ -17,15 +17,14 @@ class Jugador extends Modelo {
             this.ancho, this.alto, 5, 20);
 
         this.animacion = this.aIdleDerecha;
-        this.orientacion = orientaciones.derecha;
+        this.orientacion = orientaciones.izquierda;
 
 
     }
 
     saltar(){
         if ( !this.enElAire ) {
-            debugger
-            this.vy = -16;
+            this.vy = -15;
             this.enElAire = true;
         }
 
@@ -87,10 +86,6 @@ class Jugador extends Modelo {
 
     moverX (direccion){
         this.vx = direccion * 3;
-    }
-
-    moverY (direccion){
-        this.vy = direccion * 3;
     }
 
     disparar(){
