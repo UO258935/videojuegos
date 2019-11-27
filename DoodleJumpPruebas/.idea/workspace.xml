@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="53e17378-5e4d-463b-a3e3-005d81a62bd7" name="Default Changelist" comment="" />
+    <list default="true" id="bc5a93a1-7854-4448-94f0-482b1d71b14d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,11 +11,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1U97AKzIaDw5TGogYStPooOynTJ" />
+  <component name="ProjectId" id="1UCsGOHM3legn9k2OI1O6rFHCFT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../NAVES" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -34,14 +34,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="53e17378-5e4d-463b-a3e3-005d81a62bd7" name="Default Changelist" comment="" />
-      <created>1574756812376</created>
+      <changelist id="bc5a93a1-7854-4448-94f0-482b1d71b14d" name="Default Changelist" comment="" />
+      <created>1574871878923</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1574756812376</updated>
-      <workItem from="1574756813947" duration="14299000" />
-      <workItem from="1574780287101" duration="8908000" />
-      <workItem from="1574870932472" duration="1870000" />
+      <updated>1574871878923</updated>
+      <workItem from="1574871880107" duration="925000" />
     </task>
     <servers />
   </component>
@@ -53,9 +51,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>

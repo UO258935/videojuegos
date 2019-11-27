@@ -6,7 +6,6 @@ window.addEventListener('keyup', onKeyUp, false);
 function onKeyDown( event) {
     // agregar la tecla pulsada si no estaba
     var posicion = teclas.indexOf(event.keyCode);
-    console.log(posicion)
     if ( posicion == -1 ) {
         teclas.push(event.keyCode);
         switch ( event.keyCode ){
@@ -27,6 +26,7 @@ function onKeyDown( event) {
                 break;
             case 1:
                 controles.saltar = 1;
+                break;
         }
     }
 }
@@ -63,5 +63,6 @@ function onKeyUp( event) {
             break;
         case 1:
             controles.saltar = 1;
+            break;
     }
 }

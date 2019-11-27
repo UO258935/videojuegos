@@ -13,7 +13,7 @@ var controles = {};
 // Inicio capas y bucle del juego
 function iniciarJuego() {
     gameLayer = new GameLayer();
-    setInterval(loop, 1000 / 30);
+    setInterval(loop, 1000 / 50);
 }
 
 function loop(){

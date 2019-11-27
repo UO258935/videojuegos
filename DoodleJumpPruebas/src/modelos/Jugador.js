@@ -78,9 +78,9 @@ class Jugador extends Modelo {
 
     }
 
-    dibujar (scrollY){
-        scrollY = scrollY || 0;
-        this.animacion.dibujar(this.x, this.y - scrollY);
+    dibujar (){
+
+        this.animacion.dibujar(this.x, this.y );
     }
 
 

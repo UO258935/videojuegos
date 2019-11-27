@@ -18,14 +18,10 @@ class GameLayer extends Layer {
         //cargar el mapa
         this.cargarMapa("res/0.txt");
 
-        //scroll
-        this.scrollY = 0;
 
     }
 
-    calcularScroll(){
-        this.scrollY = this.jugador.y - 400;
-    }
+
 
 
     cargarMapa(ruta){
@@ -52,16 +48,7 @@ class GameLayer extends Layer {
 
     actualizar() {
         this.espacio.actualizar();
-
-        this.fondo.vy = 1;
-        this.fondo.actualizar();
-
         this.jugador.actualizar();
-
-        // Jugador se cae
-        if (this.jugador.x > 350 || this.jugador.x < -10) {
-            this.iniciar();
-        }
 
 
         // Eliminar disparos sin velocidad
@@ -91,7 +78,7 @@ class GameLayer extends Layer {
 
 
     dibujar() {
-        this.calcularScroll();
+
         this.fondo.dibujar();
 
         for (var i=0; i < this.disparosJugador.length; i++) {
