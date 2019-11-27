@@ -12,9 +12,9 @@ class Jugador extends Modelo {
 
         // Animaciones
         this.aIdleDerecha = new Animacion(imagenes.jugador_derecha,
-            this.ancho, this.alto, 5, 20);
+            this.ancho, this.alto, 7, 20);
         this.aIdleIzquierda = new Animacion(imagenes.jugador_izquierda,
-            this.ancho, this.alto, 5, 20);
+            this.ancho, this.alto, 7, 20);
 
         this.animacion = this.aIdleDerecha;
         this.orientacion = orientaciones.izquierda;
@@ -56,9 +56,12 @@ class Jugador extends Modelo {
             this.orientacion = orientaciones.izquierda;
         }
 
-        // Selección de animación
+
+
+
         if ( this.vx != 0 ) {
             if (this.orientacion == orientaciones.derecha) {
+                //this.animacion = this.aIdleDerecha;
                 this.animacion = this.aIdleDerecha;
             }
             if (this.orientacion == orientaciones.izquierda) {

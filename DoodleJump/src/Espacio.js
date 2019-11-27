@@ -19,8 +19,8 @@ class Espacio {
             // reiniciar choques
              this.dinamicos[i].choqueAbajo = false;
 
+
             this.moverAbajo(i);
-            //this.moverArriba(i);
         }
 
     }
@@ -116,6 +116,93 @@ class Espacio {
             this.dinamicos[i].y = this.dinamicos[i].y + movimientoPosible;
             this.dinamicos[i].vy = movimientoPosible;
         }
+    }
+
+    moverDerecha(i){
+        if ( this.dinamicos[i].vx > 0){
+            var movimientoPosible = this.dinamicos[i].vx;
+            // El mejor "idealmente" vx partimos de ese
+
+            for(var j=0; j < this.estaticos.length; j++){
+                var derechaDinamico
+                    = this.dinamicos[i].x + this.dinamicos[i].ancho/2;
+                var arribaDinamico
+                    = this.dinamicos[i].y - this.dinamicos[i].alto/2;
+                var abajoDinamico
+                    = this.dinamicos[i].y + this.dinamicos[i].alto/2;
+                var izquierdaEstatico
+                    = this.estaticos[j].x - this.estaticos[j].ancho/2;
+                var arribaEstatico
+                    = this.estaticos[j].y - this.estaticos[j].alto/2;
+                var abajoEstatico
+                    = this.estaticos[j].y + this.estaticos[j].alto/2;
+
+                // Alerta!, Elemento estático en la trayectoria.
+                if ( (derechaDinamico + this.dinamicos[i].vx) >= izquierdaEstatico
+                    && derechaDinamico <= izquierdaEstatico
+                    && arribaEstatico < abajoDinamico
+                    && abajoEstatico > arribaDinamico){
+
+                    // Comprobamos si la distancia al estático es menor
+                    // que nuestro movimientoPosible actual
+                    if (movimientoPosible >= izquierdaEstatico - derechaDinamico){
+                        // La distancia es MENOR que nuestro movimiento posible
+                        // Tenemos que actualizar el movimiento posible a uno menor
+                        movimientoPosible = izquierdaEstatico - derechaDinamico ;
+                    }
+
+                }
+
+            }
+            // Ya se han comprobado todos los estáticos
+            this.dinamicos[i].x = this.dinamicos[i].x + movimientoPosible;
+            this.dinamicos[i].vx = movimientoPosible;
+        }
+    }
+
+    moverIzquierda(i){
+
+// Izquierda
+        if ( this.dinamicos[i].vx < 0){
+            var movimientoPosible = this.dinamicos[i].vx;
+            // El mejor "idealmente" vx partimos de ese
+
+            for(var j=0; j < this.estaticos.length; j++){
+                var izquierdaDinamico
+                    = this.dinamicos[i].x - this.dinamicos[i].ancho/2;
+                var arribaDinamico
+                    = this.dinamicos[i].y - this.dinamicos[i].alto/2;
+                var abajoDinamico
+                    = this.dinamicos[i].y + this.dinamicos[i].alto/2;
+                var derechaEstatico
+                    = this.estaticos[j].x + this.estaticos[j].ancho/2;
+                var arribaEstatico
+                    = this.estaticos[j].y - this.estaticos[j].alto/2;
+                var abajoEstatico
+                    = this.estaticos[j].y + this.estaticos[j].alto/2;
+
+                // Alerta!, Elemento estático en la trayectoria.
+                if ( (izquierdaDinamico + this.dinamicos[i].vx) <= derechaEstatico
+                    && izquierdaDinamico >= derechaEstatico
+                    && arribaEstatico < abajoDinamico
+                    && abajoEstatico > arribaDinamico ){
+
+                    // Comprobamos si la distancia al estático es mayor
+                    // que nuestro movimientoPosible actual
+                    if (movimientoPosible <= derechaEstatico - izquierdaDinamico ){
+                        // La distancia es MAYOR que nuestro movimiento posible
+                        // Tenemos que actualizar el movimiento posible a uno mayor
+                        movimientoPosible = derechaEstatico - izquierdaDinamico ;
+                    }
+
+                }
+            }
+
+            // Ya se han comprobado todos los estaticos
+            this.dinamicos[i].x = this.dinamicos[i].x + movimientoPosible;
+            this.dinamicos[i].vx = movimientoPosible;
+        }
+
     }
 
 

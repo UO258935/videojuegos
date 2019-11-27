@@ -30,9 +30,4 @@ class Modelo {
         return colisiona;
     }
 
-
-
-
-
-
 }

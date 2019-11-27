@@ -10,6 +10,8 @@ var imagenes = {
     meta : "res/meta.png",
     recolectable : "res/moneda-oro.png",
     disparo : "res/disparo.png",
+    salto_derecha : "res/animacion-prota-salto-derecha.png",
+    salto_izquierda : "res/animacion-prota-salto-izquierda.png"
 
 
 };

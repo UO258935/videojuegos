@@ -24,7 +24,7 @@ class GameLayer extends Layer {
     }
 
     calcularScroll(){
-        this.scrollY = this.jugador.y - 400;
+        this.scrollY = this.jugador.y - 300;
     }
 
 
@@ -78,10 +78,12 @@ class GameLayer extends Layer {
             this.disparosJugador[i].actualizar();
         }
 
+
         for(var i = 0; i < this.bloques.length; i++){
           if(this.bloques[i] != null && this.jugador != null && this.jugador.colisiona(this.bloques[i])){
-             //this.jugador.saltar();
-              console.log("salto")
+             // this.espacio
+               //   .eliminarCuerpoEstatico(this.bloques[i]);
+             // this.bloques.splice(i, 1)
           }
         }
 
@@ -120,6 +122,7 @@ class GameLayer extends Layer {
             }
         }
 
+        //salto
         if(controles.saltar = 1){
             this.jugador.saltar();
         }
