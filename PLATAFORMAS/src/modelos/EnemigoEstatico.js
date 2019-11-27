@@ -2,8 +2,8 @@ class EnemigoEstatico extends Modelo {
 
     constructor(x, y) {
         super(imagenes.enemigo, x, y);
-        this.animacion = new Animacion(imagenes.enemigo_estatico,
-            this.ancho, this.alto, 6, 3);
+        this.animacion = new Animacion(imagenes.enemigo_animacion_morado,
+            this.ancho, this.alto, 6, 2);
         this.x=x;
 
     }

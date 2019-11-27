@@ -85,10 +85,10 @@ class Jugador extends Modelo {
 
 
     moverX (direccion) {
-        this.vx = direccion * 3;
+        this.vx = direccion * 5;
     }
     moverY (direccion){
-        this.vy = direccion * 3;
+        this.vy = direccion * 5;
     }
 
     disparar(){

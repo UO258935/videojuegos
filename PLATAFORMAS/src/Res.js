@@ -37,6 +37,8 @@ var imagenes = {
     enemigo_estatico : "res/abeja_animada - copia.png",
     fondoBola: "res/fondoBola.png",
     fondoBola2: "res/fondoBola2.png",
+    enemigo_animacion_amarillo : "res/enemigo-animacion-amarillo.png",
+    enemigo_animacion_morado : "res/enemigo-animacion-morado.png",
 
 };
 
