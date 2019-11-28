@@ -17,7 +17,6 @@ function iniciarJuego() {
 }
 
 function loop(){
-    console.log("loop - ")
     gameLayer.dibujar();
     gameLayer.procesarControles();
     gameLayer.actualizar();

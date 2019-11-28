@@ -50,11 +50,12 @@ class GameLayer extends Layer {
     }
 
 
+
     actualizar() {
         this.espacio.actualizar();
 
-        this.fondo.vy = 1;
-        this.fondo.actualizar();
+        //this.fondo.vy = 1;
+        //this.fondo.actualizar();
 
         this.jugador.actualizar();
 
@@ -62,34 +63,42 @@ class GameLayer extends Layer {
         if (this.jugador.x > 350 || this.jugador.x < -10) {
             this.iniciar();
         }
-
-
-        // Eliminar disparos sin velocidad
-        for (var i = 0; i < this.disparosJugador.length; i++) {
-            if (this.disparosJugador[i] != null &&
-                this.disparosJugador[i].vx == 0) {
-                this.espacio
-                    .eliminarCuerpoDinamico(this.disparosJugador[i]);
-                this.disparosJugador.splice(i, 1);
-            }
-        }
+        
 
         for (var i = 0; i < this.disparosJugador.length; i++) {
             this.disparosJugador[i].actualizar();
         }
 
 
-        for(var i = 0; i < this.bloques.length; i++){
-          if(this.bloques[i] != null && this.jugador != null && this.jugador.colisiona(this.bloques[i])){
-             // this.espacio
-               //   .eliminarCuerpoEstatico(this.bloques[i]);
-             // this.bloques.splice(i, 1)
-          }
+        for(var i = 0; i < this.bloques.length; i++) {
+            if (this.bloques[i] != null && this.jugador != null && this.jugador.colisiona(this.bloques[i])) {
+                // this.espacio
+                //   .eliminarCuerpoEstatico(this.bloques[i]);
+                // this.bloques.splice(i, 1)
+            }
         }
 
+        // Eliminar disparos fuera de pantalla
+        for (var i=0; i < this.disparosJugador.length; i++){
+            if ( this.disparosJugador[i] != null && this.disparosJugador[i].vy > 0){
 
+                this.disparosJugador.splice(i, 1);
+                i=i-1;
+            }
+        }
+
+        for(var i = 0; i < this.bloques.length; i++) {
+            for (var j=0; j < this.disparosJugador.length; j++){
+                if ( this.disparosJugador[i] != null && this.bloques[j] != null  &&
+                    this.disparosJugador[i].colisiona(this.bloques[j])){
+                    console.log("jn")
+                }
+            }
+        }
 
     }
+
+
 
 
     dibujar() {
@@ -104,12 +113,7 @@ class GameLayer extends Layer {
             this.bloques[i].dibujar(this.scrollY);
         }
 
-
         this.jugador.dibujar(this.scrollY);
-
-
-
-
     }
 
     procesarControles( ){
@@ -122,10 +126,6 @@ class GameLayer extends Layer {
             }
         }
 
-        //salto
-        if(controles.saltar = 1){
-            this.jugador.saltar();
-        }
 
         // Eje X
         if ( controles.moverX > 0 ){

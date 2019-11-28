@@ -24,14 +24,16 @@ class Jugador extends Modelo {
 
     saltar(){
         if ( !this.enElAire ) {
-            this.vy = -15;
+            this.vy = -9;
             this.enElAire = true;
         }
-
     }
 
     actualizar(){
         this.animacion.actualizar();
+
+        // Saltar
+        this.saltar();
 
         // ¿Esta en el aire?
         if (this.choqueAbajo == true){
@@ -45,6 +47,7 @@ class Jugador extends Modelo {
             this.tiempoDisparo--;
         }
 
+        // Movimiento jugador
         this.x = this.x + this.vx;
         this.y = this.y + this.vy;
 
@@ -55,9 +58,6 @@ class Jugador extends Modelo {
         if ( this.vx < 0 ){
             this.orientacion = orientaciones.izquierda;
         }
-
-
-
 
         if ( this.vx != 0 ) {
             if (this.orientacion == orientaciones.derecha) {
@@ -88,11 +88,9 @@ class Jugador extends Modelo {
 
 
     moverX (direccion) {
-        this.vx = direccion * 5;
+        this.vx = direccion * 8;
     }
-    moverY (direccion){
-        this.vy = direccion * 5;
-    }
+
 
     disparar(){
         if ( this.tiempoDisparo == 0) {
