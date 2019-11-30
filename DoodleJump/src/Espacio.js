@@ -17,14 +17,12 @@ class Espacio {
             else{
                 this.dinamicos[i].y = this.dinamicos[i].y + this.dinamicos[i].vy;
             }
-
             // Reiniciar choques
             this.dinamicos[i].choqueAbajo = false;
-
             this.moverAbajo(i);
         }
 
-        }
+    }
 
         moverAbajo(i){
             if (this.dinamicos[i].vy > 0) {
@@ -53,12 +51,11 @@ class Espacio {
                             // Tenemos que actualizar el movimiento posible a uno menor
                             this.dinamicos[i].choqueAbajo = true;
                             movimientoPosible = arribaEstatico - abajoDinamico ;
-
                         }
                     }
                 }
                 // Ya se han comprobado todos los estáticos
-                this.dinamicos[i].y = this.dinamicos[i].y + movimientoPosible;
+                this.dinamicos[i].y = this.dinamicos[i].y;
                 this.dinamicos[i].vy = movimientoPosible;
             }
         }

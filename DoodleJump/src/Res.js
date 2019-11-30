@@ -11,7 +11,9 @@ var imagenes = {
     recolectable : "res/moneda-oro.png",
     disparo : "res/disparo.png",
     salto_derecha : "res/animacion-prota-salto-derecha.png",
-    salto_izquierda : "res/animacion-prota-salto-izquierda.png"
+    salto_izquierda : "res/animacion-prota-salto-izquierda.png",
+    enemigo_morado : "res/enemigo-animacion-morado.png",
+    enemigo_amarillo : "res/enemigo-animacion-amarillo.png",
 
 
 };

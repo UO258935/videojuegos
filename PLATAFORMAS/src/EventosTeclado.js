@@ -40,7 +40,7 @@ function onKeyUp( event) {
     switch ( event.keyCode ){
         case 32:
             controles.disparo = false;
-            controles.continuar = false;
+            controles.continuar = false ;
             break;
         case 38:
             if ( controles.moverY == 1 ){

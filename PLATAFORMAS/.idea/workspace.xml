@@ -15,30 +15,6 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>colision</find>
-      <find>actual</find>
-      <find>cargarOb</find>
-      <find>enemigos =</find>
-      <find>procesarControles</find>
-      <find>ac</find>
-      <find>disparo</find>
-      <find>disparo =</find>
-      <find>disparar</find>
-      <find>disparar()</find>
-      <find>cargarMapa</find>
-      <find>splice</find>
-      <find>procesarControl</find>
-      <find>moverAbajo</find>
-      <find>actuali</find>
-      <find>actualizar</find>
-      <find>calcularPulsa</find>
-      <find>procesaro</find>
-      <find>dibujar</find>
-      <find>32</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -97,6 +73,7 @@
       <workItem from="1574808539625" duration="1410000" />
       <workItem from="1574873321993" duration="214000" />
       <workItem from="1574876250485" duration="1849000" />
+      <workItem from="1575132221577" duration="3211000" />
     </task>
     <servers />
   </component>
