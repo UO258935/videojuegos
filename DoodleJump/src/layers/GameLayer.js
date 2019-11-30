@@ -207,6 +207,24 @@ class GameLayer extends Layer {
                 this.bloques.push(bloque3);
                 this.espacio.agregarCuerpoEstatico(bloque3);
                 break;
+            case "4":
+                var bloque4 = new Bloque(imagenes.plataforma_izquierda_roja, x,y);
+                bloque4.y = bloque4.y - bloque4.alto/2;
+                this.bloques.push(bloque4);
+                this.espacio.agregarCuerpoEstatico(bloque4);
+                break;
+            case "5":
+                var bloque5 = new Bloque(imagenes.plataforma_centro_roja, x,y);
+                bloque5.y = bloque5.y - bloque5.alto/2;
+                this.bloques.push(bloque5);
+                this.espacio.agregarCuerpoEstatico(bloque5);
+                break;
+            case "6":
+                var bloque6 = new Bloque(imagenes.plataforma_derecha_roja, x,y);
+                bloque6.y = bloque6.y - bloque6.alto/2;
+                this.bloques.push(bloque6);
+                this.espacio.agregarCuerpoEstatico(bloque6);
+                break;
             case "M":
                 var enemigo = new Enemigo(x, y);
                 enemigo.y = enemigo.y - enemigo.alto/2;
