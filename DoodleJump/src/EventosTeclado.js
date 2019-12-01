@@ -4,6 +4,7 @@ document.addEventListener('keydown', onKeyDown, false);
 window.addEventListener('keyup', onKeyUp, false);
 
 function onKeyDown( event) {
+    entrada = entradas.teclado;
     // agregar la tecla pulsada si no estaba
     var posicion = teclas.indexOf(event.keyCode);
     if ( posicion == -1 ) {
@@ -11,6 +12,7 @@ function onKeyDown( event) {
         switch ( event.keyCode ){
             case 32:
                 controles.disparo = true;
+                layer
                 break;
             case 38:
                 controles.moverY = 1;
@@ -35,6 +37,7 @@ function onKeyUp( event) {
     switch ( event.keyCode ){
         case 32:
             controles.disparo = false;
+            controles.continuar = false;
             break;
         case 38:
             if ( controles.moverY == 1 ){

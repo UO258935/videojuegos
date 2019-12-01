@@ -2,15 +2,24 @@ class GameLayer extends Layer {
 
     constructor() {
         super();
+        this.comoJugar =new Boton(imagenes.pantalla_instrucciones, 320/2, 480/2);
+        this.pausa = true;
         this.iniciar();
 
     }
 
     iniciar() {
+        reproducirMusica();
+
         this.espacio = new Espacio(1 );
 
         this.fondo = new Fondo(imagenes.fondo1, 320 * 0.5, 480 * 0.5);
 
+        this.puntos = new Texto(0,40 ,47 );
+
+        this.btnPausa = new Boton(imagenes.boton_pausa,280,60);
+        this.btnDisparo = new Boton(imagenes.boton_disparar,280,420);
+        this.btnPad = new Pad(imagenes.pad, 40, 420);
 
         //arrays
         this.disparosJugador = [];
@@ -52,9 +61,55 @@ class GameLayer extends Layer {
         fichero.send(null);
     }
 
+    calcularPulsaciones(pulsaciones){
+        // Suponemos botones no estan pulsados
+        this.btnDisparo.pulsado = false;
 
+        controles.moverX = 0;
+
+        controles.continuar = false;
+
+        for(var i=0; i < pulsaciones.length; i++){
+
+            if(pulsaciones[i].tipo == tipoPulsacion.inicio){
+                controles.continuar = true;
+            }
+
+            if (this.btnPad.contienePunto(pulsaciones[i].x , pulsaciones[i].y) ) {
+                var orientacionX = this.btnPad.obtenerOrientacionX(pulsaciones[i].x);
+                if (orientacionX > 20) { // de 0 a 20 no contabilizamos
+                    controles.moverX = 1;
+                }
+                if (orientacionX < -20) { // de -20 a 0 no contabilizamos
+                    controles.moverX = -1;
+                }
+            }
+
+            if (this.btnDisparo.contienePunto(pulsaciones[i].x , pulsaciones[i].y) ){
+                this.btnDisparo.pulsado = true;
+
+                    controles.disparo = true;
+              
+            }
+
+            if(this.btnPausa.contienePunto(pulsaciones[i].x, pulsaciones[i].y)){
+                this.btnPausa.pulsado = true;
+                this.pausa = true;
+            }
+
+        }
+
+        // No pulsado - Boton Disparo
+        if ( !this.btnDisparo.pulsado ){
+            controles.disparo = false;
+        }
+
+    }
 
     actualizar() {
+        if (this.pausa){
+            return;
+        }
 
         this.espacio.actualizar()
         this.jugador.actualizar();
@@ -103,6 +158,7 @@ class GameLayer extends Layer {
                         this.espacio
                             .eliminarCuerpoDinamico(this.disparosJugador[j]);
                         this.disparosJugador.splice(j, 1);
+
                     }
                 }
             }
@@ -117,12 +173,14 @@ class GameLayer extends Layer {
             this.iniciar();
         }
 
-
+        // Colision Jugador - Plataforma
+        for(var i = 0; i < this.bloques.length; i++){
+            if(this.bloques[i]!=null && this.jugador != null && this.jugador.colisiona(this.bloques[i])){
+                this.puntos.valor++;
+            }
+        }
 
     }
-
-
-
 
     dibujar() {
         this.calcularScroll();
@@ -140,9 +198,26 @@ class GameLayer extends Layer {
         }
 
         this.jugador.dibujar(this.scrollY);
+
+        this.puntos.dibujar();
+
+        this.btnDisparo.dibujar();
+        this.btnPausa.dibujar();
+        this.btnPad.dibujar();
+
+        if ( this.pausa ) {
+            this.comoJugar.dibujar();
+        }
+
+
     }
 
     procesarControles( ){
+        if (controles.continuar) {
+            controles.continuar = false;
+            this.pausa = false;
+        }
+
         // disparar
         if (  controles.disparo ){
             var nuevoDisparo = this.jugador.disparar();
@@ -151,7 +226,6 @@ class GameLayer extends Layer {
                 this.disparosJugador.push(nuevoDisparo);
             }
         }
-
 
         // Eje X
         if ( controles.moverX > 0 ){
@@ -229,7 +303,7 @@ class GameLayer extends Layer {
                 var enemigo = new Enemigo(x, y);
                 enemigo.y = enemigo.y - enemigo.alto/2;
                 this.enemigos.push(enemigo);
-                this.espacio.agregarCuerpoEstatico(enemigo);
+                this.espacio.agregarCuerpoDinamico(enemigo);
                 break;
 
 

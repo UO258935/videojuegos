@@ -20,6 +20,8 @@ class Espacio {
             this.dinamicos[i].choqueAbajo = false;
 
 
+
+
             //derecha
             this.moverDerecha(i);
             this.moverIzquierda(i);

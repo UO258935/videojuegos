@@ -3,12 +3,13 @@ class Enemigo extends Modelo {
     constructor(x, y) {
         super(imagenes.enemigo, x, y)
 
-        this.estado = estados.moviendo;
+
         this.aMover = new Animacion(imagenes.enemigo_movimiento,
             this.ancho, this.alto, 6, 3);
         this.aMorir = new Animacion(imagenes.enemigo_morir,
             this.ancho,this.alto,6,8, this.finAnimacionMorir.bind(this));
 
+        this.estado = estados.moviendo;
         // Ref a la animación actual
         this.animacion = this.aMover;
 

@@ -17,6 +17,16 @@ var imagenes = {
     salto_izquierda : "res/animacion-prota-salto-izquierda.png",
     enemigo_morado : "res/enemigo-animacion-morado.png",
     enemigo_amarillo : "res/enemigo-animacion-amarillo.png",
+    enemigo_movimiento : "res/enemigo-movimiento.png",
+    enemigo_muerto : "res/enemigo-muerto.png",
+    boton_pausa :  "res/button_pause.png",
+    boton_disparar : "res/buttonfire.png",
+    pad : "res/pad.png",
+    pantalla_carga : "res/pantalla_carga.png",
+    pantalla_pausa : "res/pausa.png",
+    pantalla_instrucciones : "res/instrucciones.png",
+    boton_jugar : "res/jugar.png",
+
 
 
 };
