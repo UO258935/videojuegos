@@ -13,7 +13,7 @@ class GameLayer extends Layer {
 
         this.espacio = new Espacio(1 );
 
-        this.fondo = new Fondo(imagenes.fondo1, 320 * 0.5, 480 * 0.5);
+        this.fondo = new Fondo(imagenes.fondo, 320 * 0.5, 480 * 0.5);
 
         this.puntos = new Texto(0,40 ,47 );
 
@@ -25,6 +25,7 @@ class GameLayer extends Layer {
         this.disparosJugador = [];
         this.bloques = [];
         this.enemigos = [];
+        this.trampas = [];
 
         //cargar el mapa
         this.cargarMapa("res/"+nivelActual+".txt");
@@ -46,7 +47,7 @@ class GameLayer extends Layer {
         fichero.onreadystatechange = function () {
             var texto = fichero.responseText;
             var lineas = texto.split('\n');
-            this.anchoMapa = (lineas[0].length-1) * 40;
+            //this.anchoMapa = (lineas[0].length-1) * 40;
             for (var i = 0; i < lineas.length; i++){
                 var linea = lineas[i];
                 for (var j = 0; j < linea.length; j++){
@@ -127,6 +128,10 @@ class GameLayer extends Layer {
             this.enemigos[i].actualizar();
         }
 
+        for (var i = 0; i < this.trampas.length; i++) {
+            this.trampas[i].actualizar();
+        }
+
 
         // Eliminar disparos fuera de pantalla
         for (var i=0; i < this.disparosJugador.length; i++){
@@ -159,6 +164,8 @@ class GameLayer extends Layer {
                             .eliminarCuerpoDinamico(this.disparosJugador[j]);
                         this.disparosJugador.splice(j, 1);
 
+                        this.puntos.valor += 10;
+
                     }
                 }
             }
@@ -180,6 +187,13 @@ class GameLayer extends Layer {
             }
         }
 
+        // Colision Jugador - Trampa
+        for(var i = 0; i < this.trampas.length;i++){
+            if(this.trampas[i]!=null && this.jugador != null && this.jugador.colisiona(this.trampas[i])){
+                this.iniciar();
+            }
+        }
+
     }
 
     dibujar() {
@@ -195,6 +209,10 @@ class GameLayer extends Layer {
         }
         for (var i=0; i < this.bloques.length; i++){
             this.bloques[i].dibujar(this.scrollY);
+        }
+
+        for (var i=0; i < this.trampas.length; i++){
+            this.trampas[i].dibujar(this.scrollY);
         }
 
         this.jugador.dibujar(this.scrollY);
@@ -304,6 +322,12 @@ class GameLayer extends Layer {
                 enemigo.y = enemigo.y - enemigo.alto/2;
                 this.enemigos.push(enemigo);
                 this.espacio.agregarCuerpoDinamico(enemigo);
+                break;
+            case "T":
+                var trampa = new Trampa(x, y);
+                trampa.y = trampa.y - trampa.alto/2;
+                this.trampas.push(trampa);
+                this.espacio.agregarCuerpoEstatico(trampa);
                 break;
 
 

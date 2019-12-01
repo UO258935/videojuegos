@@ -9,7 +9,7 @@ class MenuLayer extends Layer {
         this.fondo =
             new Fondo(imagenes.pantalla_carga,320 * 0.5, 480 * 0.5);
         this.boton =
-            new Boton(imagenes.boton_jugar,320*0.5,480*0.7);
+            new Boton(imagenes.boton_jugar,320*0.55,480*0.7);
     }
 
     dibujar (){
