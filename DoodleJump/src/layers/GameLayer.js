@@ -19,8 +19,7 @@ class GameLayer extends Layer {
 
         this.btnPausa = new Boton(imagenes.boton_pausa,280,60);
         this.btnDisparo = new Boton(imagenes.boton_disparar,40,420);
-        this.btnPad = new Pad(imagenes.pad, 280, 420);
-        // 40 420
+        this.btnPad = new Pad(imagenes.pad, 260, 400);
 
         //arrays
         this.disparosJugador = [];
