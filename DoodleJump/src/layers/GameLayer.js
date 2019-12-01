@@ -18,8 +18,9 @@ class GameLayer extends Layer {
         this.puntos = new Texto(0,40 ,47 );
 
         this.btnPausa = new Boton(imagenes.boton_pausa,280,60);
-        this.btnDisparo = new Boton(imagenes.boton_disparar,280,420);
-        this.btnPad = new Pad(imagenes.pad, 40, 420);
+        this.btnDisparo = new Boton(imagenes.boton_disparar,40,420);
+        this.btnPad = new Pad(imagenes.pad, 280, 420);
+        // 40 420
 
         //arrays
         this.disparosJugador = [];
@@ -89,7 +90,7 @@ class GameLayer extends Layer {
                 this.btnDisparo.pulsado = true;
 
                     controles.disparo = true;
-              
+
             }
 
             if(this.btnPausa.contienePunto(pulsaciones[i].x, pulsaciones[i].y)){
