@@ -15,8 +15,6 @@ var imagenes = {
     disparo : "res/disparo.png",
     salto_derecha : "res/animacion-prota-salto-derecha.png",
     salto_izquierda : "res/animacion-prota-salto-izquierda.png",
-    enemigo_morado : "res/enemigo-animacion-morado.png",
-    enemigo_amarillo : "res/enemigo-animacion-amarillo.png",
     enemigo_movimiento : "res/enemigo-movimiento.png",
     enemigo_muerto : "res/enemigo-muerto.png",
     boton_pausa :  "res/button_pause.png",

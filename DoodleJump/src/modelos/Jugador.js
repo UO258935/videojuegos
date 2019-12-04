@@ -16,7 +16,7 @@ class Jugador extends Modelo {
         this.aIdleIzquierda = new Animacion(imagenes.jugador_izquierda,
             this.ancho, this.alto, 9, 20);
 
-        this.animacion = this.aIdleDerecha;
+        this.animacion = this.aIdleIzquierda;
         this.orientacion = orientaciones.izquierda;
 
 

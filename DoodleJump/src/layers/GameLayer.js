@@ -4,6 +4,7 @@ class GameLayer extends Layer {
         super();
         this.comoJugar =new Boton(imagenes.pantalla_instrucciones, 320/2, 480/2);
         this.pausa = true;
+
         this.iniciar();
 
     }
@@ -20,6 +21,7 @@ class GameLayer extends Layer {
         this.btnPausa = new Boton(imagenes.boton_pausa,280,60);
         this.btnDisparo = new Boton(imagenes.boton_disparar,40,420);
         this.btnPad = new Pad(imagenes.pad, 260, 400);
+
 
         //arrays
         this.disparosJugador = [];
@@ -112,6 +114,7 @@ class GameLayer extends Layer {
             return;
         }
 
+
         this.espacio.actualizar()
         this.jugador.actualizar();
 
@@ -181,11 +184,11 @@ class GameLayer extends Layer {
         }
 
         // Colision Jugador - Plataforma
-        for(var i = 0; i < this.bloques.length; i++){
+       /* for(var i = 0; i < this.bloques.length; i++){
             if(this.bloques[i]!=null && this.jugador != null && this.jugador.colisiona(this.bloques[i])){
                 this.puntos.valor++;
             }
-        }
+        }*/
 
         // Colision Jugador - Trampa
         for(var i = 0; i < this.trampas.length;i++){
@@ -193,6 +196,8 @@ class GameLayer extends Layer {
                 this.iniciar();
             }
         }
+
+
 
     }
 
@@ -226,6 +231,7 @@ class GameLayer extends Layer {
         if ( this.pausa ) {
             this.comoJugar.dibujar();
         }
+
 
 
     }
