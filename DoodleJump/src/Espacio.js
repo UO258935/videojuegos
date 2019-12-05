@@ -13,14 +13,12 @@ class Espacio {
             // Maxima velocidad de caida por gravedad
             if (this.dinamicos[i].vy > 20 && this.dinamicos[i].gravedad ) {
                 this.dinamicos[i].vy = 20;
-
             }
             else{
                 this.dinamicos[i].y = this.dinamicos[i].y + this.dinamicos[i].vy;
             }
             // Reiniciar choques
             this.dinamicos[i].choqueAbajo = false;
-
 
             this.moverAbajo(i);
 
@@ -34,10 +32,10 @@ class Espacio {
 
                 for (var j = 0; j < this.estaticos.length; j++) {
                     var arribaDinamico = this.dinamicos[i].y - this.dinamicos[i].alto / 2;
-                    var abajoDinamico = this.dinamicos[i].y + this.dinamicos[i].alto / 2;
+                    var abajoDinamico = this.dinamicos[i].y + this.dinamicos[i].alto/2;
                     var derechaDinamico = this.dinamicos[i].x + this.dinamicos[i].ancho / 2;
                     var izquierdaDinamico = this.dinamicos[i].x - this.dinamicos[i].ancho / 2;
-                    var arribaEstatico= this.estaticos[j].y - this.estaticos[j].alto / 2;
+                    var arribaEstatico= this.estaticos[j].y - this.estaticos[j].alto/2;
                     var abajoEstatico= this.estaticos[j].y + this.estaticos[j].alto / 2;
                     var derechaEstatico = this.estaticos[j].x + this.estaticos[j].ancho / 2;
                     var izquierdaEstatico = this.estaticos[j].x - this.estaticos[j].ancho / 2;

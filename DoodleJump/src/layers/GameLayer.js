@@ -136,6 +136,8 @@ class GameLayer extends Layer {
         }
 
 
+
+
         // Eliminar disparos fuera de pantalla
         for (var i=0; i < this.disparosJugador.length; i++){
             if ( this.disparosJugador[i] != null && this.disparosJugador[i].vy > 0){
@@ -177,25 +179,20 @@ class GameLayer extends Layer {
         // Colision Jugador - Meta(invisible)
         if ( this.meta.colisiona(this.jugador)){
             nivelActual++;
-            if (nivelActual > nivelMaximo){
+            if (nivelActual > nivelMaximo) {
                 nivelActual = 0;
             }
             this.iniciar();
         }
-
-        // Colision Jugador - Plataforma
-       /* for(var i = 0; i < this.bloques.length; i++){
-            if(this.bloques[i]!=null && this.jugador != null && this.jugador.colisiona(this.bloques[i])){
-                this.puntos.valor++;
-            }
-        }*/
-
+        
         // Colision Jugador - Trampa
         for(var i = 0; i < this.trampas.length;i++){
             if(this.trampas[i]!=null && this.jugador != null && this.jugador.colisiona(this.trampas[i])){
                 this.iniciar();
             }
         }
+
+
 
 
 
@@ -335,8 +332,6 @@ class GameLayer extends Layer {
                 this.trampas.push(trampa);
                 this.espacio.agregarCuerpoEstatico(trampa);
                 break;
-
-
         }
     }
 
