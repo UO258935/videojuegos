@@ -6,26 +6,15 @@ class Enemigo extends Modelo {
         this.aMover = new Animacion(imagenes.enemigo_movimiento,
             this.ancho, this.alto, 6, 3);
 
-
         this.animacion = this.aMover;
 
-        this.vxInteligencia = -1;
-        this.vx = this.vxInteligencia;
         this.vy = 0;
 
     }
 
-    finAnimacionMorir(){
-        this.estado = estados.muerto;
-    }
 
     actualizar (){
         this.animacion.actualizar();
-
-
-
-
-
     }
     dibujar (scrollY){
         scrollY = scrollY || 0;

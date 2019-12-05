@@ -180,20 +180,18 @@ class GameLayer extends Layer {
         if ( this.meta.colisiona(this.jugador)){
             nivelActual++;
             if (nivelActual > nivelMaximo) {
+
                 nivelActual = 0;
             }
+
             this.iniciar();
         }
-        
         // Colision Jugador - Trampa
         for(var i = 0; i < this.trampas.length;i++){
             if(this.trampas[i]!=null && this.jugador != null && this.jugador.colisiona(this.trampas[i])){
                 this.iniciar();
             }
         }
-
-
-
 
 
     }
@@ -225,11 +223,10 @@ class GameLayer extends Layer {
         this.btnPausa.dibujar();
         this.btnPad.dibujar();
 
+
         if ( this.pausa ) {
             this.comoJugar.dibujar();
         }
-
-
 
     }
 
@@ -259,14 +256,6 @@ class GameLayer extends Layer {
             this.jugador.moverX(0);
         }
 
-        // Eje Y
-        if ( controles.moverY > 0 ){
-            this.jugador.saltar();
-        } else if ( controles.moverY < 0 ){
-
-        } else {
-
-        }
 
     }
 

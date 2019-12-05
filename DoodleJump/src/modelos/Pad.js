@@ -8,8 +8,4 @@ class Pad extends Boton {
         return pX - this.x;
     }
 
-    obtenerOrientacionY(pY){
-        return pY - this.y;
-    }
-
 }

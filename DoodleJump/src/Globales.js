@@ -16,7 +16,7 @@ var nivelMaximo = 1;
 
 
 var estados = {};
-estados.moviendo= 2; // Incluye parado, derecha , izquierda
+estados.moviendo= 2;
 estados.saltando = 3;
 estados.muriendo = 4;
 estados.muerto = 5;

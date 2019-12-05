@@ -30,11 +30,4 @@ class Modelo {
         return colisiona;
     }
 
-    estaEnPantalla (){
-        if ( this.x - this.ancho/2 <= 320 &&
-            this.y - this.alto/2 <= 480){
-            return true;
-        }
-        return false;
-    }
 }
